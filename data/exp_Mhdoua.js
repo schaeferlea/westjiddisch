@@ -1,0 +1,38 @@
+var exp_Mhdoua = {
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "REDE_ID": 123610, "X": 13.410000, "Y": 52.520000, "ALL": 56, "C": 23, "J": 33, "OUJ": 1, "OUC": 1, "OUNOJ": 31, "OUNOC": 19 }, "geometry": { "type": "Point", "coordinates": [ 13.41, 52.52 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 113247, "X": 9.990000, "Y": 53.550000, "ALL": 13, "C": 9, "J": 4, "OUJ": 1, "OUC": 1, "OUNOJ": 3, "OUNOC": 7 }, "geometry": { "type": "Point", "coordinates": [ 9.99, 53.55 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 529357, "X": 17.030000, "Y": 51.110000, "ALL": 10, "C": 7, "J": 3, "OUJ": 1, "OUC": 1, "OUNOJ": 1, "OUNOC": 6 }, "geometry": { "type": "Point", "coordinates": [ 17.03, 51.11 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 97616, "X": 8.680000, "Y": 50.110000, "ALL": 6, "C": 4, "J": 2, "OUJ": 1, "OUC": 1, "OUNOJ": 1, "OUNOC": 3 }, "geometry": { "type": "Point", "coordinates": [ 8.68, 50.11 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 97918, "X": 8.430000, "Y": 49.320000, "ALL": 4, "C": 4, "J": 0, "OUJ": 0, "OUC": 1, "OUNOJ": 0, "OUNOC": 1 }, "geometry": { "type": "Point", "coordinates": [ 8.43, 49.32 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 0, "X": 24.030000, "Y": 49.840000, "ALL": 1, "C": 1, "J": 0, "OUJ": 0, "OUC": 1, "OUNOJ": 0, "OUNOC": 0 }, "geometry": { "type": "Point", "coordinates": [ 24.03, 49.84 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 123096, "X": 11.620000, "Y": 52.130000, "ALL": 2, "C": 2, "J": 0, "OUJ": 0, "OUC": 1, "OUNOJ": 0, "OUNOC": 0 }, "geometry": { "type": "Point", "coordinates": [ 11.62, 52.13 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 92553, "X": 9.930000, "Y": 49.790000, "ALL": 1, "C": 1, "J": 0, "OUJ": 0, "OUC": 1, "OUNOJ": 0, "OUNOC": 0 }, "geometry": { "type": "Point", "coordinates": [ 9.93, 49.79 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 126074, "X": 10.720000, "Y": 51.970000, "ALL": 1, "C": 1, "J": 0, "OUJ": 0, "OUC": 1, "OUNOJ": 0, "OUNOC": 0 }, "geometry": { "type": "Point", "coordinates": [ 10.72, 51.97 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 122182, "X": 12.900000, "Y": 53.700000, "ALL": 1, "C": 1, "J": 0, "OUJ": 0, "OUC": 1, "OUNOJ": 0, "OUNOC": 0 }, "geometry": { "type": "Point", "coordinates": [ 12.9, 53.7 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 1022421, "X": 21.630000, "Y": 47.530000, "ALL": 1, "C": 1, "J": 0, "OUJ": 0, "OUC": 1, "OUNOJ": 0, "OUNOC": 0 }, "geometry": { "type": "Point", "coordinates": [ 21.63, 47.53 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 96602, "X": 8.760000, "Y": 50.340000, "ALL": 2, "C": 2, "J": 0, "OUJ": 0, "OUC": 1, "OUNOJ": 0, "OUNOC": 1 }, "geometry": { "type": "Point", "coordinates": [ 8.76, 50.34 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 80258, "X": 11.000000, "Y": 49.600000, "ALL": 2, "C": 2, "J": 0, "OUJ": 0, "OUC": 1, "OUNOJ": 0, "OUNOC": 1 }, "geometry": { "type": "Point", "coordinates": [ 11.0, 49.6 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 118631, "X": 13.870000, "Y": 53.320000, "ALL": 2, "C": 2, "J": 0, "OUJ": 0, "OUC": 1, "OUNOJ": 0, "OUNOC": 1 }, "geometry": { "type": "Point", "coordinates": [ 13.87, 53.32 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 100420, "X": 8.920000, "Y": 50.130000, "ALL": 4, "C": 4, "J": 0, "OUJ": 0, "OUC": 1, "OUNOJ": 0, "OUNOC": 3 }, "geometry": { "type": "Point", "coordinates": [ 8.92, 50.13 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 73556, "X": 11.580000, "Y": 48.140000, "ALL": 4, "C": 4, "J": 0, "OUJ": 0, "OUC": 1, "OUNOJ": 0, "OUNOC": 3 }, "geometry": { "type": "Point", "coordinates": [ 11.58, 48.14 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 123723, "X": 12.560000, "Y": 52.410000, "ALL": 6, "C": 6, "J": 0, "OUJ": 0, "OUC": 1, "OUNOJ": 0, "OUNOC": 5 }, "geometry": { "type": "Point", "coordinates": [ 12.56, 52.41 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 77404, "X": 11.080000, "Y": 49.450000, "ALL": 8, "C": 8, "J": 0, "OUJ": 0, "OUC": 1, "OUNOJ": 0, "OUNOC": 7 }, "geometry": { "type": "Point", "coordinates": [ 11.08, 49.45 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 142921, "X": 12.370000, "Y": 51.340000, "ALL": 15, "C": 15, "J": 0, "OUJ": 0, "OUC": 1, "OUNOJ": 0, "OUNOC": 14 }, "geometry": { "type": "Point", "coordinates": [ 12.37, 51.34 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 8997, "X": 16.370000, "Y": 48.210000, "ALL": 25, "C": 22, "J": 3, "OUJ": 0, "OUC": 1, "OUNOJ": 3, "OUNOC": 21 }, "geometry": { "type": "Point", "coordinates": [ 16.37, 48.21 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 28475, "X": 7.340000, "Y": 47.750000, "ALL": 6, "C": 1, "J": 5, "OUJ": 1, "OUC": 0, "OUNOJ": 1, "OUNOC": 1 }, "geometry": { "type": "Point", "coordinates": [ 7.34, 47.75 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 131885, "X": 7.480000, "Y": 53.470000, "ALL": 1, "C": 0, "J": 1, "OUJ": 1, "OUC": 0, "OUNOJ": 1, "OUNOC": 0 }, "geometry": { "type": "Point", "coordinates": [ 7.48, 53.47 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 83263, "X": 10.990000, "Y": 49.480000, "ALL": 5, "C": 1, "J": 4, "OUJ": 1, "OUC": 0, "OUNOJ": 2, "OUNOC": 1 }, "geometry": { "type": "Point", "coordinates": [ 10.99, 49.48 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 9512, "X": 16.520000, "Y": 47.850000, "ALL": 3, "C": 0, "J": 3, "OUJ": 1, "OUC": 0, "OUNOJ": 1, "OUNOC": 0 }, "geometry": { "type": "Point", "coordinates": [ 16.52, 47.85 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 131885, "X": 8.270000, "Y": 50.000000, "ALL": 1, "C": 0, "J": 1, "OUJ": 1, "OUC": 0, "OUNOJ": 0, "OUNOC": 0 }, "geometry": { "type": "Point", "coordinates": [ 8.27, 50.0 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 99973, "X": 9.110000, "Y": 50.290000, "ALL": 1, "C": 0, "J": 1, "OUJ": 1, "OUC": 0, "OUNOJ": 0, "OUNOC": 0 }, "geometry": { "type": "Point", "coordinates": [ 9.11, 50.29 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 126338, "X": 11.670000, "Y": 51.700000, "ALL": 1, "C": 0, "J": 1, "OUJ": 1, "OUC": 0, "OUNOJ": 0, "OUNOC": 0 }, "geometry": { "type": "Point", "coordinates": [ 11.67, 51.7 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 124564, "X": 13.880000, "Y": 52.580000, "ALL": 1, "C": 0, "J": 1, "OUJ": 1, "OUC": 0, "OUNOJ": 0, "OUNOC": 0 }, "geometry": { "type": "Point", "coordinates": [ 13.88, 52.58 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 31694, "X": 7.360000, "Y": 48.080000, "ALL": 2, "C": 0, "J": 2, "OUJ": 1, "OUC": 0, "OUNOJ": 1, "OUNOC": 0 }, "geometry": { "type": "Point", "coordinates": [ 7.36, 48.08 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 129816, "X": 8.760000, "Y": 47.700000, "ALL": 3, "C": 0, "J": 3, "OUJ": 1, "OUC": 0, "OUNOJ": 2, "OUNOC": 0 }, "geometry": { "type": "Point", "coordinates": [ 8.76, 47.7 ] } },
+{ "type": "Feature", "properties": { "REDE_ID": 4336, "X": 16.920000, "Y": 47.840000, "ALL": 3, "C": 0, "J": 3, "OUJ": 1, "OUC": 0, "OUNOJ": 2, "OUNOC": 0 }, "geometry": { "type": "Point", "coordinates": [ 16.92, 47.84 ] } }
+]
+}

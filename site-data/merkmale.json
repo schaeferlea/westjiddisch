@@ -1,0 +1,51 @@
+{
+  "lex": {
+    "wj": "westjiddische Sonderlexik",
+    "oj": "ostjiddische Sonderlexik",
+    "rom": "Romanismen",
+    "haben": "haben als Perfekt-Auxiliar periphrastischer Verben",
+    "sein": "sein als Perfekt-Auxiliar periphrastischer Verben"
+  },
+  "phon": {
+    "V24": "V24, mhd. ei > /a:/",
+    "V24ae": "V24, mhd. ei > /\u00e4:/",
+    "V44": "V44, mhd. ou > /a:/",
+    "V22a": "V22, mhd. oe > /ei/, /ai/",
+    "V22b": "V22, mhd. \u00ea > /ei/, /ai/",
+    "V42au": "V42, mhd. \u00f4 > /au/",
+    "V42ou": "V42, mhd. \u00f4 > /ou/",
+    "V12": "V12, V13 > /o/,/o:/",
+    "V34a": "V34, mhd. /\u00ee/ > /ei/",
+    "V34b": "V34, mhd. /iu/ > /ei/",
+    "V34c": "V34, mhd. /\u00ee/ > /a:/ (Hyperkorrektur)",
+    "yi": "/y/, <\u00fc> > /i/",
+    "ye": "/y/, <\u00fc> > /e/",
+    "oei": "/\u0153/, <\u00f6> > /i/",
+    "oee": "/\u0153/, <\u00f6> > /e/",
+    "uy": "/u/ > /y/",
+    "sross": "Spro\u00dfvokal",
+    "ai": "<ai> statt <ei>",
+    "ey": "<ey> statt <ei>",
+    "sch": "<sch> statt <ch>",
+    "s": "<s> statt <z>",
+    "z": "<\u00df> statt <z>",
+    "ppAn": "germ. *pp- im Anlaut erhalten",
+    "ppAus": "germ. *-pp- im Inlaut erhalten",
+    "sonphon": "Sonstiges Phonologie"
+  },
+  "morph": {
+    "DIMSG": "Diminution (Sg.)",
+    "DIMPL": "Diminution (Pl.)",
+    "sPL": "s-Plural (dt. Komponente)",
+    "KasP": "Kasus nach Pr\u00e4position",
+    "Ex": "Extrapositionen",
+    "VR": "Abfolge Verbcluster",
+    "VPR": "verb projection raising",
+    "rel": "Relativpartikel",
+    "neg": "Negationskongruenz",
+    "kom": "kommen-zu-gehen Konstruktionen",
+    "VO": "VO-Strukturen",
+    "sonmorph": "Sonstiges Morphologie",
+    "sonsyn": "Sonstiges Syntax"
+  }
+}

@@ -1,0 +1,138 @@
+
+/* menue oben */
+
+#menu1 a, #menu1 a:visited , #menu1 a:active {display: block;
+color:#ffffff;
+font-size: 13px;
+font-family: tahoma,verdana,helvetica, verdana, tahoma, sans-serif;
+padding-left: 10px;padding-right: 10px; padding-bottom: 0px; padding-top:0px;
+height:40px;
+line-height:40px;
+text-align:center;
+vertical-align:middle;
+
+text-decoration:none ;
+letter-spacing:1px;
+text-transform:lowercase;
+background-color:#4c6898;background:transparent;
+border-right:solid 1px white;
+}
+
+#menu1 a:hover {color:#979696; text-decoration:none ;
+background:transparent;
+text-decoration:none;
+background-color:#fff;
+background-image:url(images/fv1.jpg);
+background-repeat:repeat-x;
+background-position:  50% 0%;
+padding-bottom: 0px;
+}
+
+.trenn {background-color:#fff;}
+
+/* =============================================================== */
+
+/* menue linke seite */
+
+#menu2 a, #menu2 a:visited , #menu2 a:active {display: block;
+color:#ffffff;
+font-size: 13px;
+font-family: tahoma,verdana,helvetica, verdana, tahoma, sans-serif;
+padding-left: 10px;padding-right: 10px; padding-bottom: 0px; padding-top:0px;
+height:40px;
+line-height:40px;
+text-align:right;
+vertical-align:middle;
+
+text-decoration:none ;
+letter-spacing:1px;
+text-transform:lowercase;
+border-bottom:solid 1px white;
+border-left:solid 1px white;
+background-color:#4A6895;background:transparent;
+width:200px;background-image:url(ximages/fv1.jpg);
+background-repeat:repeat-x;
+background-position:  50% 0%}
+
+#menu2 a:hover {color:#c1c1c1; text-decoration:none ;
+background:transparent;
+text-decoration:none;
+background-color:#fff;
+background-image:url(images/fv1.jpg);
+background-repeat:repeat-x;
+background-position:  50% 0%
+padding-bottom: 0px;
+
+}
+
+/* zweites menue linke seite */
+
+#menu3 a, #menu3 a:visited , #menu3 a:active {display: block;
+color:#fff;
+font-size: 13px;
+font-family: tahoma,verdana,helvetica, verdana, tahoma, sans-serif;
+padding-left: 10px;padding-right: 10px; padding-bottom: 0px; padding-top:0px;
+height:40px;
+line-height:40px;
+text-align:right;
+vertical-align:middle;
+background:transparent;
+text-decoration:none ;
+letter-spacing:1px;
+text-transform:lowercase;
+border-bottom:solid 1px white;
+border-left:solid 1px white;
+background-color:#e74247;
+width:200px;
+background-image:url(images/fv5.jpg);
+background-repeat:repeat-x;
+background-position:  100% 50%;
+}
+
+#menu3 a:hover {color:#c1c1c1; text-decoration:none ;
+background:transparent;
+text-decoration:none;
+background-color:#fff;
+background-image:url(images/fv1.jpg);
+background-repeat:repeat-x;
+background-position:  50% 0%;
+padding-bottom: 0px;
+}
+
+
+
+/* menue im neuigkeiten-feld */
+
+#menu4 a, #menu4 a:visited , #menu4 a:active {
+color:#fff;
+font-family: tahoma,verdana,helvetica, verdana, tahoma, sans-serif;
+}
+
+#menu4 a:hover {color:#5D749E; text-decoration:none ;
+background:transparent;
+text-decoration:none;
+background-color:#fff;
+}
+
+
+
+#divbox
+a.nohover, a.nohover:hover {
+color:#000000;
+font-weight:normal;
+background-color: transparent;
+}
+
+
+/* =============================================================== */
+
+/* allgemeine links im text */
+
+a:link, a:visited, a:active{
+color:#e74247;
+font-size: 15px;line-height: 22px;
+font-family: tahoma,verdana,arial,helvetica, verdana, tahoma, sans-serif;
+text-decoration:underline;}
+
+a:hover{ text-decoration:none;background-color:none;
+color:#dc8b8a;text-decoration:#dc8b8a;}

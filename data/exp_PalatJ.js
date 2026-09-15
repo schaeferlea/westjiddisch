@@ -1,0 +1,15 @@
+var exp_PalatJ = {
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "Quellen": "Garkisch, Vaudeville en 1 acte de Josy Meyer. Meyer, Josy (1930).", "X": 7.339444, "Y": 47.748611, "Konfession": "J" }, "geometry": { "type": "Point", "coordinates": [ 7.339444, 47.748611 ] } },
+{ "type": "Feature", "properties": { "Quellen": "S'frömeläs Etziglä. Schwank in 2 Aufzügen in elsässisch-jüdischer Mundart. Léon Bollag (1902).", "X": 7.355000, "Y": 48.081111, "Konfession": "J" }, "geometry": { "type": "Point", "coordinates": [ 7.355, 48.081111 ] } },
+{ "type": "Feature", "properties": { "Quellen": "Herr Richard Wogner, der musikal'sche Struwelpeter, saane naiste Oper: Crischan Isosolldich! saane grausse Cacophonie ßu Bayreuth un san forchtbarer Tod .... Hersch, Issac Moses  (1876).", "X": 11.666667, "Y": 51.700000, "Konfession": "J" }, "geometry": { "type": "Point", "coordinates": [ 11.666667, 51.7 ] } },
+{ "type": "Feature", "properties": { "Quellen": "Was meinen Sie, wie gesund ist das! In: Gedichte und Scherze in jüdischer Mundart, Nr. 23. Omeinsager, Mortche  (1877) – Waih geschriegn, Mer sain gemacht!! Rebbe Jankef (1848).", "X": 13.408056, "Y": 52.518611, "Konfession": "J" }, "geometry": { "type": "Point", "coordinates": [ 13.408056, 52.518611 ] } },
+{ "type": "Feature", "properties": { "Quellen": "Torres Lokschen. Allerlei Lotzelech. Mattersdorfer-Marschelik (1900) – Probes fun der idishn folklor in Burgnland. Meshelkh un lider. In: YIVO-Bleter, Bd. II Nr.3 Oktober 1931, S. 200f.. Cohen, J.L., Grundwld, Max (1931) – Material tsum burgenlender idish. Folklor un dialekt. In: Filologishe shriftn. III. Stalek, R. (Wien) (1929) – Mattersdorf (In: Mitteilungen zur jüdischen Volkskunde : Organ d. Gesellschaft für Jüdische Volkskunde in Hamburg u. d. Gesellschaft für Sammlung und Konservierung von Kunst- und Historischen Denkmälern des Judentums in Wien). Grunwald, Max (1925). ", "X": 16.518889, "Y": 47.845556, "Konfession": "J" }, "geometry": { "type": "Point", "coordinates": [ 16.518889, 47.845556 ] } },
+{ "type": "Feature", "properties": { "Quellen": "Wenkerbogen aus Frauenkirchen WB Nr. 42663 . n.a. Israelische Schule (ca. 1881).", "X": 16.919444, "Y": 47.841111, "Konfession": "J" }, "geometry": { "type": "Point", "coordinates": [ 16.919444, 47.841111 ] } },
+{ "type": "Feature", "properties": { "Quellen": "Wenkerbogen Kobyla Gora Nr. 09746. Babouriz, George  (ca. 1880).", "X": 17.840000, "Y": 51.830000 }, "geometry": { "type": "Point", "coordinates": [ 17.84, 51.83 ] } },
+{ "type": "Feature", "properties": { "Quellen": "Jünge Zores ün alte Seferes oder Kosere Tsüwes af trefene Sajles. Majer Jofeh de Babelebens Enikel (Pseud.?) (1867).", "X": 21.633333, "Y": 47.533333, "Konfession": "J" }, "geometry": { "type": "Point", "coordinates": [ 21.633333, 47.533333 ] } }
+]
+}
