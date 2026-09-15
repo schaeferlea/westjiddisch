@@ -255,7 +255,7 @@
 			return this._div;
 		};
 		title.update = function () {
-			this._div.innerHTML = '<img src="wjlogomaps.png">'
+			this._div.innerHTML = '<img src="wjlogomaps.png" width="56" style="height:auto">'
 		};
 		title.addTo(map);
 		L.control.layers({},{"Flüsse": exp_ne10mriverslakecenterlinesJSON,"WA Karte Nr. 291 Fleisch mhd. ei > a:": exp_WAKarteNr125eiaJSON, "KDSA Karte Nr. 419 Fleisch mhd. ei > a(a)": exp_KDSA419JSON, "Mhd. ei > a: nicht-jüdische Autoren (37)": exp_V24CJSON,"Mhd. ei > a: jüdische Autoren (29)": exp_V24JJSON,"Quellorte Projekt": exp_QuellorteProjektJSON},{collapsed:false}).addTo(map);

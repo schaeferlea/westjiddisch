@@ -245,7 +245,7 @@
 			return this._div;
 		};
 		title.update = function () {
-			this._div.innerHTML = '<img src="wjlogomaps.png">'
+			this._div.innerHTML = '<img src="wjlogomaps.png" width="56" style="height:auto">'
 		};
 		title.addTo(map);
 		L.control.layers({},{"Flüsse": exp_ne10mriverslakecenterlinesJSON,"Zusammenfall mhd. ei/ou > a: (WA Karten Nr. 125 u. 291)": exp_WAKarteNr125zusammenJSON,"Zusammenfall mhd. ei/ou > a: (KDSA Karten Nr. 419 u. 425)": exp_KDSA419425ZusammenfallJSON,"Mhd. ei/ou > a: nicht-jüdische Autoren (23)": exp_V2444CJSON,"Mhd. ei/ou > a: jüdische Autoren (26)": exp_V2444JJSON,"Quellorte Projekt": exp_QuellorteProjektJSON},{collapsed:false}).addTo(map);

@@ -251,7 +251,7 @@ var pinkIcon = L.icon({
 			return this._div;
 		};
 		title.update = function () {
-			this._div.innerHTML = '<img src="wjlogomaps.png">'
+			this._div.innerHTML = '<img src="wjlogomaps.png" width="56" style="height:auto">'
 		};
 		title.addTo(map);
 		L.control.layers({},{"Flüsse": exp_ne10mriverslakecenterlinesJSON,"WA Karte Nr. 277 gekommen o > u ": exp_WAKarteNr277kummengekummengekommen4JSON, "o > u nicht-jüdische Autoren (8)": exp_senkungCJSON,"o > u jüdische Autoren (8)": exp_senkungJJSON,"Quellorte Projekt": exp_QuellorteProjektJSON},{collapsed:false}).addTo(map);

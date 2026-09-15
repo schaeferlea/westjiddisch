@@ -286,7 +286,7 @@ var pinkIcon = L.icon({
 			return this._div;
 		};
 		title.update = function () {
-			this._div.innerHTML = '<img src="wjlogomaps.png">'
+			this._div.innerHTML = '<img src="wjlogomaps.png" width="56" style="height:auto">'
 		};
 		title.addTo(map);
 		L.control.layers({},{"Flüsse": exp_ne10mriverslakecenterlinesJSON, "KDSA Karte Nr. 410 neu(e) mhd. î > ei ": exp_KDSA410JSON,"Mhd. î/iu > ei/ai nicht-jüdische Autoren (27)": exp_V34CJSON,"Mhd.  î/iu > ei/ai jüdische Autoren (25)": exp_V34JJSON,"Mhd. î > a: nicht-jüdische Autoren (9)": exp_V34ChyperJSON,"Mhd. î > a: jüdische Autoren (7)": exp_V34JhyperJSON,"Quellorte Projekt": exp_QuellorteProjektJSON},{collapsed:false}).addTo(map);
