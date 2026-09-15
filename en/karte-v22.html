@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Karte Hebung o > u</title>
+		<title>Map for V22</title>
 
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="css/leaflet.css" />
-		<link rel="stylesheet" type="text/css" href="css/own_stylebig.css">
-		<script src="js/1.min.js"></script>
-		<script src="js/leaflet.js"></script>
-		<script src="js/leaflet-hash.js"></script>
-		<script src="js/Autolinker.min.js"></script>
+		<link rel="stylesheet" href="../css/leaflet.css" />
+		<link rel="stylesheet" type="text/css" href="../css/own_stylebig.css">
+		<script src="../js/1.min.js"></script>
+		<script src="../js/leaflet.js"></script>
+		<script src="../js/leaflet-hash.js"></script>
+		<script src="../js/Autolinker.min.js"></script>
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	</head>
 	<body>
-<div style="background:#c1c1c1;padding:6px 12px;font-family:sans-serif;font-size:13px"><a href="maps.html" style="color:#e74247;text-decoration:none">← Zur Kartenübersicht</a> &nbsp;|&nbsp; <a href="index.html" style="color:#e74247;text-decoration:none">Startseite</a> &nbsp;|&nbsp; <a href="en/karte-senkung.html" style="color:#777;text-decoration:none;font-size:11px">English</a></div>
+<div style="background:#c1c1c1;padding:6px 12px;font-family:sans-serif;font-size:13px"><a href="../maps.html" style="color:#e74247;text-decoration:none">← Back to map overview</a> &nbsp;|&nbsp; <a href="../index.html" style="color:#e74247;text-decoration:none">Home</a> &nbsp;|&nbsp; <a href="../karte-v22.html" style="color:#777;text-decoration:none;font-size:11px">Deutsch</a></div>
 
 		<div id="map"></div>
-		<script src="data/exp_ne10mriverslakecenterlines.js"></script>
-		<script src="data/exp_WAKarteNr277kummengekummengekommen4.js"></script>
-
-		<script src="data/exp_senkungC.js"></script>
-		<script src="data/exp_senkungJ.js"></script>
-		<script src="data/exp_QuellorteProjekt.js"></script>
-		<script src="data/exp_ne10madmin0countries.js"></script>
-		<script src="data/exp_ne10mocean.js"></script>
-		<script src="data/exp_ne10mpopulatedplaces.js"></script>
+		<script src="../data/exp_ne10mriverslakecenterlines.js"></script>
+		<script src="../data/exp_KDSAV22.js"></script>
+		<script src="../data/exp_V22C.js"></script>
+		<script src="../data/exp_V22J.js"></script>
+		<script src="../data/exp_QuellorteProjekt.js"></script>
+		<script src="../data/exp_ne10madmin0countries.js"></script>
+		<script src="../data/exp_ne10mocean.js"></script>
+		<script src="../data/exp_ne10mpopulatedplaces.js"></script>
 		<script>
 		var map = L.map('map', {
 			zoomControl:true, maxZoom:19
@@ -91,13 +90,13 @@
 		}
 
 
-		function pop_senkungJ(feature, layer) {
-			var popupContent = '<table><tr><th scope="row">Quellen</th><td>' + Autolinker.link(String(feature.properties['Quellen'])) + '</td></tr></table>';
+		function pop_V22J(feature, layer) {
+			var popupContent = '<table><tr><th scope="row">Sources</th><td>' + Autolinker.link(String(feature.properties['Quellen'])) + '</td></tr></table>';
 			layer.bindPopup(popupContent);
 		}
 
-		var exp_senkungJJSON = new L.geoJson(exp_senkungJ,{
-			onEachFeature: pop_senkungJ,
+		var exp_V22JJSON = new L.geoJson(exp_V22J,{
+			onEachFeature: pop_V22J,
 			pointToLayer: function (feature, latlng) {
 				return L.circleMarker(latlng, {
 					radius: 7.5,
@@ -110,14 +109,14 @@
 			}
 		});
 		//add comment sign to hide this layer on the map in the initial view.
-		feature_group.addLayer(exp_senkungJJSON);
-		function pop_senkungC(feature, layer) {
-			var popupContent = '<table><tr><th scope="row">Quellen</th><td>' + Autolinker.link(String(feature.properties['Quellen']))  + '</td></tr></table>';
+		feature_group.addLayer(exp_V22JJSON);
+		function pop_V22C(feature, layer) {
+			var popupContent = '<table><tr><th scope="row">Sources</th><td>' + Autolinker.link(String(feature.properties['Quellen']))  + '</td></tr></table>';
 			layer.bindPopup(popupContent);
 		}
 
-		var exp_senkungCJSON = new L.geoJson(exp_senkungC,{
-			onEachFeature: pop_senkungC,
+		var exp_V22CJSON = new L.geoJson(exp_V22C,{
+			onEachFeature: pop_V22C,
 			pointToLayer: function (feature, latlng) {
 				return L.circleMarker(latlng, {
 					radius: 7.5,
@@ -130,62 +129,29 @@
 			}
 		});
 		//add comment sign to hide this layer on the map in the initial view.
-		feature_group.addLayer(exp_senkungCJSON);
-
-
-			var redIcon = L.icon({
-    iconUrl: 'squarered.png',
-
-
-    iconSize:     [10, 10], // size of the icon
-
-});
-
-
-var pinkIcon = L.icon({
-    iconUrl: 'squarepink.png',
-
-
-    iconSize:     [10, 10], // size of the icon
-
-});
-
-
-
-
-
-
-
-
-
-
-
-
-		function pop_WAKarteNr277kummengekummengekommen4(feature, layer) {
+		feature_group.addLayer(exp_V22CJSON);
+		function pop_KDSAV22(feature, layer) {
 			var popupContent = '<table><tr><th scope="row">Id</th><td>' + Autolinker.link(String(feature.properties['Id'])) + '</td></tr></table>';
 			layer.bindPopup(popupContent);
 		}
 
-		function doStyleWAKarteNr277kummengekummengekommen4(feature) {
+		function doStyleKDSAV22(feature) {
 				return {
-					color: '#fdcbca',
-					fillColor: '#fdcbca',
+					color: '#fb9a99',
+					fillColor: '#fb9a99',
 					weight: 1.3,
 					dashArray: '',
-					opacity: 0.576471,
-					fillOpacity: 0.576471
+					opacity: 0.376471,
+					fillOpacity: 0.376471
 				};
 
 		}
-		var exp_WAKarteNr277kummengekummengekommen4JSON = new L.geoJson(exp_WAKarteNr277kummengekummengekommen4,{
-			onEachFeature: pop_WAKarteNr277kummengekummengekommen4,
-			style: doStyleWAKarteNr277kummengekummengekommen4
+		var exp_KDSAV22JSON = new L.geoJson(exp_KDSAV22,{
+			onEachFeature: pop_KDSAV22,
+			style: doStyleKDSAV22
 		});
 		//delete comment sign to show this layer on the map in the initial view.
-		//feature_group.addLayer(exp_WAKarteNr277kummengekummengekommen4JSON);
-		//
-
-
+		//feature_group.addLayer(exp_KDSAV22JSON);
 		function pop_ne10mriverslakecenterlines(feature, layer) {
 			var popupContent = '<table><tr><th scope="row">dissolve</th><td>' + Autolinker.link(String(feature.properties['dissolve'])) + '</td></tr><tr><th scope="row">scalerank</th><td>' + Autolinker.link(String(feature.properties['scalerank'])) + '</td></tr><tr><th scope="row">featurecla</th><td>' + Autolinker.link(String(feature.properties['featurecla'])) + '</td></tr><tr><th scope="row">name</th><td>' + Autolinker.link(String(feature.properties['name'])) + '</td></tr><tr><th scope="row">name_alt</th><td>' + Autolinker.link(String(feature.properties['name_alt'])) + '</td></tr><tr><th scope="row">rivernum</th><td>' + Autolinker.link(String(feature.properties['rivernum'])) + '</td></tr><tr><th scope="row">note</th><td>' + Autolinker.link(String(feature.properties['note'])) + '</td></tr></table>';
 			layer.bindPopup(popupContent);
@@ -251,10 +217,10 @@ var pinkIcon = L.icon({
 			return this._div;
 		};
 		title.update = function () {
-			this._div.innerHTML = '<img src="wjlogomaps.png" width="56" style="height:auto">'
+			this._div.innerHTML = '<img src="../wjlogomaps.png" width="56" style="height:auto">'
 		};
 		title.addTo(map);
-		L.control.layers({},{"Flüsse": exp_ne10mriverslakecenterlinesJSON,"WA Karte Nr. 277 gekommen o > u ": exp_WAKarteNr277kummengekummengekommen4JSON, "o > u nicht-jüdische Autoren (8)": exp_senkungCJSON,"o > u jüdische Autoren (8)": exp_senkungJJSON,"Quellorte Projekt": exp_QuellorteProjektJSON},{collapsed:false}).addTo(map);
+		L.control.layers({},{"Rivers": exp_ne10mriverslakecenterlinesJSON,"MHG oe/ê > ai in German dialects (KDSA maps no. 378, 382)": exp_KDSAV22JSON,"MHG oe/ê > ai non-Jewish authors (37)": exp_V22CJSON,"MHG oe/ê > ai Jewish authors (24)": exp_V22JJSON,"Project source locations": exp_QuellorteProjektJSON},{collapsed:false}).addTo(map);
 		L.control.scale({options: {position: 'bottomleft',maxWidth: 100,metric: true,imperial: false,updateWhenIdle: false}}).addTo(map);
 	</script>
 </body>

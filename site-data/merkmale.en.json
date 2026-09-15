@@ -1,0 +1,51 @@
+{
+  "lex": {
+    "wj": "West Yiddish special lexicon",
+    "oj": "East Yiddish special lexicon",
+    "rom": "Romance loanwords",
+    "haben": "haben ('have') as the perfect auxiliary of periphrastic verbs",
+    "sein": "sein ('be') as the perfect auxiliary of periphrastic verbs"
+  },
+  "phon": {
+    "V24": "V24, MHG ei > /a:/",
+    "V24ae": "V24, MHG ei > /\u00e4:/",
+    "V44": "V44, MHG ou > /a:/",
+    "V22a": "V22, MHG oe > /ei/, /ai/",
+    "V22b": "V22, MHG \u00ea > /ei/, /ai/",
+    "V42au": "V42, MHG \u00f4 > /au/",
+    "V42ou": "V42, MHG \u00f4 > /ou/",
+    "V12": "V12, V13 > /o/,/o:/",
+    "V34a": "V34, MHG /\u00ee/ > /ei/",
+    "V34b": "V34, MHG /iu/ > /ei/",
+    "V34c": "V34, MHG /\u00ee/ > /a:/ (hypercorrection)",
+    "yi": "/y/, <\u00fc> > /i/",
+    "ye": "/y/, <\u00fc> > /e/",
+    "oei": "/\u0153/, <\u00f6> > /i/",
+    "oee": "/\u0153/, <\u00f6> > /e/",
+    "uy": "/u/ > /y/",
+    "sross": "epenthetic vowel",
+    "ai": "<ai> instead of <ei>",
+    "ey": "<ey> instead of <ei>",
+    "sch": "<sch> instead of <ch>",
+    "s": "<s> instead of <z>",
+    "z": "<\u00df> instead of <z>",
+    "ppAn": "Gmc. *pp- preserved word-initially",
+    "ppAus": "Gmc. *-pp- preserved word-internally",
+    "sonphon": "Other phonology"
+  },
+  "morph": {
+    "DIMSG": "Diminution (sg.)",
+    "DIMPL": "Diminution (pl.)",
+    "sPL": "s-plural (German component)",
+    "KasP": "Case after preposition",
+    "Ex": "Extrapositions",
+    "VR": "Verb cluster order",
+    "VPR": "verb projection raising",
+    "rel": "Relative particle",
+    "neg": "Negation concord",
+    "kom": "kommen-zu-gehen ('come to go') constructions",
+    "VO": "VO structures",
+    "sonmorph": "Other morphology",
+    "sonsyn": "Other syntax"
+  }
+}

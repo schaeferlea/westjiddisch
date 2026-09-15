@@ -2,21 +2,75 @@
    PHP/MySQL-Suchen (#suche.php und #belegsuche.php). Die Daten wurden
    einmalig aus der MySQL-Datenbank exportiert (siehe site-data/*.json)
    und werden hier im Browser gefiltert - es findet keine Server-Abfrage
-   mehr statt. */
+   mehr statt.
+
+   Dieses Skript wird sowohl von den deutschen als auch von den englischen
+   Seiten eingebunden; die Sprache wird aus <html lang="..."> gelesen und
+   steuert nur die Oberflaechentexte (STRINGS) und die Auswahl von
+   merkmale.json/merkmale.en.json - die zugrunde liegenden Forschungsdaten
+   (Titel, Belege) bleiben in jeder Sprache unveraendert. */
 
 (function () {
   "use strict";
 
+  var LANG = (document.documentElement.lang || "de").slice(0, 2) === "en" ? "en" : "de";
+
   var DATA_ROOT = window.WJ_DATA_ROOT || "site-data/";
+
+  var STRINGS = {
+    de: {
+      loadError: function (name, status) { return "Konnte " + name + " nicht laden (" + status + ")"; },
+      fillOneField: "Bitte füllen Sie mindestens ein Suchfeld aus oder wählen Sie „alle Quellen anzeigen“.",
+      searching: "Suche läuft ...",
+      loadDataError: function (msg) { return "Fehler beim Laden der Daten: " + msg; },
+      searchResult: "Suchergebnis",
+      notFound: "Der Suchbegriff wurde in unserer Datenbank leider nicht gefunden.",
+      hits: function (n) { return n + " Treffer"; },
+      colAutor: "Autor", colTitel: "Titel", colJahr: "Jahr", colVerlag: "Verlag",
+      colVerlagsort: "Verlagsort", colFundort: "Fundort",
+      downloadCsv: "Ergebnis als CSV herunterladen",
+      csvNameQuellen: "quellsuche_ergebnis.csv",
+      csvNamePhaenomen: "phaenomensuche_ergebnis.csv",
+      lexLabel: "Lexikalische Phänomene", phonLabel: "Phonologische Phänomene", morphLabel: "Morphosyntaktische Phänomene",
+      chooseOnePhen: "Bitte wählen Sie mindestens ein Phänomen aus.",
+      enterWord: "Bitte geben Sie ein Wort ein.",
+      noMatch: "Leider konnte kein Eintrag gefunden werden, der alle Suchkriterien erfüllt.",
+      colQuelle: "Quelle", colPhaenomen: "Phänomen", colBeleg: "Beleg",
+    },
+    en: {
+      loadError: function (name, status) { return "Could not load " + name + " (" + status + ")"; },
+      fillOneField: "Please fill in at least one search field, or select “show all sources”.",
+      searching: "Searching ...",
+      loadDataError: function (msg) { return "Error loading data: " + msg; },
+      searchResult: "Search results",
+      notFound: "Unfortunately, the search term was not found in our database.",
+      hits: function (n) { return n + (n === 1 ? " result" : " results"); },
+      colAutor: "Author", colTitel: "Title", colJahr: "Year", colVerlag: "Publisher",
+      colVerlagsort: "Place of publication", colFundort: "Library",
+      downloadCsv: "Download results as CSV",
+      csvNameQuellen: "source_search_results.csv",
+      csvNamePhaenomen: "phenomenon_search_results.csv",
+      lexLabel: "Lexical phenomena", phonLabel: "Phonological phenomena", morphLabel: "Morphosyntactic phenomena",
+      chooseOnePhen: "Please select at least one phenomenon.",
+      enterWord: "Please enter a word.",
+      noMatch: "Unfortunately, no entry could be found that satisfies all search criteria.",
+      colQuelle: "Source", colPhaenomen: "Phenomenon", colBeleg: "Attestation",
+    },
+  };
+  var T = STRINGS[LANG];
 
   var cache = {};
   function loadJSON(name) {
     if (cache[name]) return cache[name];
     cache[name] = fetch(DATA_ROOT + name).then(function (r) {
-      if (!r.ok) throw new Error("Konnte " + name + " nicht laden (" + r.status + ")");
+      if (!r.ok) throw new Error(T.loadError(name, r.status));
       return r.json();
     });
     return cache[name];
+  }
+
+  function merkmaleFile() {
+    return LANG === "en" ? "merkmale.en.json" : "merkmale.json";
   }
 
   /* ---------- Hilfsfunktionen, 1:1 aus #funktionen.php uebernommen ---------- */
@@ -129,6 +183,25 @@
 
   /* ============================= Quellsuche ============================= */
 
+  /* Die Dropdown-Beschriftungen unterscheiden sich je nach Sprache (siehe
+     suche.html / suche_en.html), zeigen aber auf dieselben Kurzcodes in den
+     Daten (site-data/titelliste.json) - deshalb sind hier beide Sprachen im
+     selben Lookup zusammengefasst. */
+  var regionMap = {
+    "Nordwestjiddisch": "NWJ", "Zentralwestjiddisch": "ZWJ", "Südwestjiddisch": "SWJ",
+    "nördliches Übergangsgebiet": "NÜJ", "südliches Übergangsgebiet": "SÜJ", "Ostjiddisch": "OJ",
+    "Northwestern Yiddish": "NWJ", "Central Western Yiddish": "ZWJ", "Southwestern Yiddish": "SWJ",
+    "northern transition area": "NÜJ", "southern transition area": "SÜJ", "Eastern Yiddish": "OJ",
+  };
+  var konfMap = {
+    "jüdischer Autor": "J", "christlicher Autor": "C",
+    "Jewish author": "J", "Christian author": "C",
+  };
+  var textMap = {
+    "Theaterstücke": "d", "Prosatexte": "e", "gebundene Sprache": "l",
+    "plays": "d", "prose texts": "e", "verse": "l",
+  };
+
   function initQuellsuche() {
     var form = document.getElementById("suche-form");
     if (!form) return;
@@ -147,23 +220,20 @@
       var textsorte = fd.get("textsorte") || "";
       var alle = fd.get("alle") === "alle";
 
-      if (region === "--auswählen--") region = "";
-      if (konfession === "--auswählen--") konfession = "";
-      if (textsorte === "--auswählen--") textsorte = "";
+      if (region.indexOf("--") === 0) region = "";
+      if (konfession.indexOf("--") === 0) konfession = "";
+      if (textsorte.indexOf("--") === 0) textsorte = "";
 
-      var regionMap = { "Nordwestjiddisch": "NWJ", "Zentralwestjiddisch": "ZWJ", "Südwestjiddisch": "SWJ", "nördliches Übergangsgebiet": "NÜJ", "südliches Übergangsgebiet": "SÜJ", "Ostjiddisch": "OJ" };
-      var konfMap = { "jüdischer Autor": "J", "christlicher Autor": "C" };
-      var textMap = { "Theaterstücke": "d", "Prosatexte": "e", "gebundene Sprache": "l" };
       if (regionMap[region]) region = regionMap[region];
       if (konfMap[konfession]) konfession = konfMap[konfession];
       if (textMap[textsorte]) textsorte = textMap[textsorte];
 
       if (!autor && !titel && !jahr && !region && !konfession && !textsorte && !alle) {
-        ergebnisDiv.innerHTML = "<p><i>Bitte füllen Sie mindestens ein Suchfeld aus oder wählen Sie „alle Quellen anzeigen“.</i></p>";
+        ergebnisDiv.innerHTML = "<p><i>" + T.fillOneField + "</i></p>";
         return;
       }
 
-      ergebnisDiv.innerHTML = "<p><i>Suche läuft ...</i></p>";
+      ergebnisDiv.innerHTML = "<p><i>" + T.searching + "</i></p>";
       loadJSON("titelliste.json").then(function (rows) {
         var treffer = rows.filter(function (r) {
           var okAutor = !autor || wortAbgleich(autor, r.Autor, autorexakt ? 1 : 2);
@@ -176,21 +246,21 @@
         });
         renderQuellsucheErgebnis(ergebnisDiv, treffer);
       }).catch(function (err) {
-        ergebnisDiv.innerHTML = "<p><i>Fehler beim Laden der Daten: " + err.message + "</i></p>";
+        ergebnisDiv.innerHTML = "<p><i>" + T.loadDataError(err.message) + "</i></p>";
       });
     });
   }
 
   function renderQuellsucheErgebnis(container, treffer) {
     container.innerHTML = "";
-    container.appendChild(el("h2", { text: "Suchergebnis" }));
+    container.appendChild(el("h2", { text: T.searchResult }));
     if (treffer.length === 0) {
-      container.appendChild(el("p", { html: "<i>Der Suchbegriff wurde in unserer Datenbank leider nicht gefunden.</i>" }));
+      container.appendChild(el("p", { html: "<i>" + T.notFound + "</i>" }));
       return;
     }
-    container.appendChild(el("p", { text: treffer.length + " Treffer" }));
+    container.appendChild(el("p", { text: T.hits(treffer.length) }));
     var table = el("table", { align: "justify", id: "breite", cellspacing: "8", cellpadding: "8", border: "0", "class": "sortable" });
-    var head = el("tr", {}, ["Autor", "Titel", "Jahr", "Verlag", "Verlagsort", "Fundort"].map(function (h) {
+    var head = el("tr", {}, [T.colAutor, T.colTitel, T.colJahr, T.colVerlag, T.colVerlagsort, T.colFundort].map(function (h) {
       return el("td", {}, [el("b", { text: h })]);
     }));
     table.appendChild(head);
@@ -209,13 +279,13 @@
     container.appendChild(table);
     makeSortable(table);
 
-    var csvBtn = el("p", {}, [el("button", { type: "button", text: "Ergebnis als CSV herunterladen" })]);
+    var csvBtn = el("p", {}, [el("button", { type: "button", text: T.downloadCsv })]);
     csvBtn.querySelector("button").addEventListener("click", function () {
-      var rows = [["Autor", "Titel", "Jahr", "Verlag", "Verlagsort", "Fundort"]];
+      var rows = [[T.colAutor, T.colTitel, T.colJahr, T.colVerlag, T.colVerlagsort, T.colFundort]];
       treffer.forEach(function (r) {
         rows.push([r.Autor, r.Titel, r.Jahr, r.Verlag, r.Ort, r.Bibliothek]);
       });
-      downloadCSV("quellsuche_ergebnis.csv", rows);
+      downloadCSV(T.csvNameQuellen, rows);
     });
     container.appendChild(csvBtn);
   }
@@ -235,8 +305,8 @@
   function initMerkmalForm() {
     var container = document.getElementById("merkmal-checkboxes");
     if (!container) return;
-    loadJSON("merkmale.json").then(function (merkmalnamen) {
-      var labels = { lex: "Lexikalische Phänomene", phon: "Phonologische Phänomene", morph: "Morphosyntaktische Phänomene" };
+    loadJSON(merkmaleFile()).then(function (merkmalnamen) {
+      var labels = { lex: T.lexLabel, phon: T.phonLabel, morph: T.morphLabel };
       ["lex", "phon", "morph"].forEach(function (ebene) {
         container.appendChild(el("h4", { text: labels[ebene] }));
         Object.keys(merkmalnamen[ebene]).forEach(function (key) {
@@ -264,11 +334,11 @@
         ev.preventDefault();
         var checked = Array.prototype.slice.call(merkmalForm.querySelectorAll('input[name="merkmale"]:checked')).map(function (c) { return c.value; });
         if (checked.length === 0) {
-          ergebnisDiv.innerHTML = "<p><i>Bitte wählen Sie mindestens ein Phänomen aus.</i></p>";
+          ergebnisDiv.innerHTML = "<p><i>" + T.chooseOnePhen + "</i></p>";
           return;
         }
-        ergebnisDiv.innerHTML = "<p><i>Suche läuft ...</i></p>";
-        Promise.all([loadJSON("phaenliste.json"), loadJSON("titelliste.json"), loadJSON("merkmale.json")]).then(function (res) {
+        ergebnisDiv.innerHTML = "<p><i>" + T.searching + "</i></p>";
+        Promise.all([loadJSON("phaenliste.json"), loadJSON("titelliste.json"), loadJSON(merkmaleFile())]).then(function (res) {
           searchByMerkmale(checked, res[0], res[1], res[2], ergebnisDiv);
         });
       });
@@ -281,11 +351,11 @@
         var lexem = (fd.get("lexem") || "").trim();
         var exakt = fd.get("genauertreffer") === "genauertreffer";
         if (!lexem) {
-          ergebnisDiv.innerHTML = "<p><i>Bitte geben Sie ein Wort ein.</i></p>";
+          ergebnisDiv.innerHTML = "<p><i>" + T.enterWord + "</i></p>";
           return;
         }
-        ergebnisDiv.innerHTML = "<p><i>Suche läuft ...</i></p>";
-        Promise.all([loadJSON("phaenliste.json"), loadJSON("titelliste.json"), loadJSON("merkmale.json")]).then(function (res) {
+        ergebnisDiv.innerHTML = "<p><i>" + T.searching + "</i></p>";
+        Promise.all([loadJSON("phaenliste.json"), loadJSON("titelliste.json"), loadJSON(merkmaleFile())]).then(function (res) {
           searchByLexem(lexem, exakt, res[0], res[1], res[2], ergebnisDiv);
         });
       });
@@ -300,9 +370,9 @@
 
   function renderMatchboxTable(container, kopf, zeilen) {
     container.innerHTML = "";
-    container.appendChild(el("h2", { text: "Suchergebnis" }));
+    container.appendChild(el("h2", { text: T.searchResult }));
     if (zeilen.length === 0) {
-      container.appendChild(el("p", { text: "Leider konnte kein Eintrag gefunden werden, der alle Suchkriterien erfüllt." }));
+      container.appendChild(el("p", { text: T.noMatch }));
       return;
     }
     var table = el("table", { align: "justify", valign: "top", cellspacing: "15", border: "0", "class": "sortable" });
@@ -327,11 +397,11 @@
     container.appendChild(table);
     makeSortable(table);
 
-    var csvBtn = el("p", {}, [el("button", { type: "button", text: "Ergebnis als CSV herunterladen" })]);
+    var csvBtn = el("p", {}, [el("button", { type: "button", text: T.downloadCsv })]);
     csvBtn.querySelector("button").addEventListener("click", function () {
       var rows = [kopf];
       zeilen.forEach(function (zeile) { rows.push(zeile.map(function (p) { return p[1]; })); });
-      downloadCSV("phaenomensuche_ergebnis.csv", rows);
+      downloadCSV(T.csvNamePhaenomen, rows);
     });
     container.appendChild(csvBtn);
   }
@@ -348,7 +418,7 @@
       }
     });
 
-    var kopf = suchmerkmale.map(function (m) { return merkmalnamenAlle[m] || m; }).concat(["Quelle"]);
+    var kopf = suchmerkmale.map(function (m) { return merkmalnamenAlle[m] || m; }).concat([T.colQuelle]);
     var zeilen = [];
     Object.keys(sammlung).forEach(function (id) {
       var vorhanden = Object.keys(sammlung[id]);
@@ -382,7 +452,7 @@
       }
     });
 
-    var kopf = ["Phänomen", "Beleg", "Quelle"];
+    var kopf = [T.colPhaenomen, T.colBeleg, T.colQuelle];
     var zeilen = [];
     if (gefunden) {
       Object.keys(treffer).forEach(function (id) {
