@@ -26,4 +26,42 @@ th {
 	color: #777;
 }
 .leaflet-container {
-	background: #fff;
+	background: #fff;}
+
+/* Kopfleiste ("Zur Kartenuebersicht | Startseite") + Karte zusammen genau
+   bildschirmhoch - vorher war die Seite um die Hoehe der Leiste zu lang und
+   liess sich (auf Touch-Geraeten stoerend) ein Stueck scrollen. */
+body {
+	display: flex;
+	flex-direction: column;
+}
+#map {
+	flex: 1 1 auto;
+	height: auto;
+	min-height: 0;
+}
+
+/* Smartphones */
+@media screen and (max-width: 700px) {
+	body > div:first-child {
+		padding: 10px 14px !important;
+		font-size: 14px !important;
+		line-height: 1.5;
+	}
+	.leaflet-control-layers-expanded {
+		padding: 6px 10px 6px 8px;
+		font-size: 13px;
+		max-width: 72vw;
+	}
+	.leaflet-control-layers input {
+		accent-color: #e74247;
+	}
+	.leaflet-control-attribution {
+		font-size: 9px;
+		line-height: 1.35;
+	}
+	/* Massstab nicht von der Quellenangabe verdecken lassen */
+	.leaflet-bottom.leaflet-left {
+		bottom: 30px;
+	}
+}
