@@ -259,20 +259,21 @@
       return;
     }
     container.appendChild(el("p", { text: T.hits(treffer.length) }));
-    var table = el("table", { align: "justify", id: "breite", cellspacing: "8", cellpadding: "8", border: "0", "class": "sortable" });
-    var head = el("tr", {}, [T.colAutor, T.colTitel, T.colJahr, T.colVerlag, T.colVerlagsort, T.colFundort].map(function (h) {
+    var table = el("table", { align: "justify", cellspacing: "8", cellpadding: "8", border: "0", "class": "sortable wj-ergebnis-tabelle" });
+    var head = el("tr", { "class": "wj-kopf" }, [T.colAutor, T.colTitel, T.colJahr, T.colVerlag, T.colVerlagsort, T.colFundort].map(function (h) {
       return el("td", {}, [el("b", { text: h })]);
     }));
     table.appendChild(head);
     var tbody = el("tbody");
     treffer.forEach(function (r) {
       tbody.appendChild(el("tr", {}, [
-        el("td", { text: r.Autor || "" }),
-        el("td", { text: r.Titel || "" }),
-        el("td", { text: r.Jahr || "" }),
-        el("td", { text: r.Verlag || "" }),
-        el("td", { text: r.Ort || "" }),
-        el("td", { text: r.Bibliothek || "" })
+        // data-label: Spaltenname, wird auf dem Handy in der Kartenansicht angezeigt
+        el("td", { text: r.Autor || "", "data-label": T.colAutor }),
+        el("td", { text: r.Titel || "", "data-label": T.colTitel }),
+        el("td", { text: r.Jahr || "", "data-label": T.colJahr }),
+        el("td", { text: r.Verlag || "", "data-label": T.colVerlag }),
+        el("td", { text: r.Ort || "", "data-label": T.colVerlagsort }),
+        el("td", { text: r.Bibliothek || "", "data-label": T.colFundort })
       ]));
     });
     table.appendChild(tbody);
@@ -306,6 +307,7 @@
     var container = document.getElementById("merkmal-checkboxes");
     if (!container) return;
     loadJSON(merkmaleFile()).then(function (merkmalnamen) {
+      container.innerHTML = ""; // Platzhalter "Lade Phänomenliste ..." entfernen
       var labels = { lex: T.lexLabel, phon: T.phonLabel, morph: T.morphLabel };
       ["lex", "phon", "morph"].forEach(function (ebene) {
         container.appendChild(el("h4", { text: labels[ebene] }));
@@ -375,25 +377,31 @@
       container.appendChild(el("p", { text: T.noMatch }));
       return;
     }
-    var table = el("table", { align: "justify", valign: "top", cellspacing: "15", border: "0", "class": "sortable" });
-    var headRow = el("tr", {}, kopf.map(function (h) {
+    var table = el("table", { align: "justify", valign: "top", cellspacing: "15", border: "0", "class": "sortable wj-ergebnis-tabelle" });
+    var headRow = el("tr", { "class": "wj-kopf" }, kopf.map(function (h) {
       return el("td", { valign: "top", width: "200", style: "width:200px" }, [el("span", { style: "padding:10px;font-weight:bold", text: h })]);
     }));
     table.appendChild(headRow);
     var tbody = el("tbody");
     zeilen.forEach(function (zeile) {
-      var row = el("tr", {}, zeile.map(function (pair) {
+      var row = el("tr", {}, zeile.map(function (pair, i) {
         var box = el("div", { id: "matchbox" }, [
           el("a", { href: "#", "class": "mb" }, [
             el("span", { "class": "zwei", text: pair[1] }),
             el("span", { "class": "eins", text: pair[0] })
           ])
         ]);
-        return el("td", { valign: "top" }, [box]);
+        return el("td", { valign: "top", "data-label": kopf[i] }, [box]);
       }));
       tbody.appendChild(row);
     });
     table.appendChild(tbody);
+    // Die Belege sind Links auf "#" (nur fuer den Hover-Effekt) - ein Klick
+    // bzw. Antippen soll die Seite nicht nach oben springen lassen.
+    table.addEventListener("click", function (ev) {
+      var a = ev.target.closest ? ev.target.closest("a.mb") : null;
+      if (a) ev.preventDefault();
+    });
     container.appendChild(table);
     makeSortable(table);
 
